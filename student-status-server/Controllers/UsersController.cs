@@ -62,6 +62,73 @@ namespace student_status_server.Controllers
             return user;
         }
 
+        //Setting the status of the user
+        [HttpPut("green/{id}")]
+        public async Task<IActionResult> Green(int id)
+        {
+            var request = await _context.Users.FindAsync(id);
+            if (request == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                request.Status = "GREEN";
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        //Setting the status of the user
+        [HttpPut("red/{id}")]
+        public async Task<IActionResult> Red(int id)
+        {
+            var request = await _context.Users.FindAsync(id);
+            if (request == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                request.Status = "RED";
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        //Setting the status of the user
+        [HttpPut("yellow/{id}")]
+        public async Task<IActionResult> Yellow(int id)
+        {
+            var request = await _context.Users.FindAsync(id);
+            if (request == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                request.Status = "YELLOW";
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        //Setting the status of the user
+        [HttpPut("white/{id}")]
+        public async Task<IActionResult> White(int id)
+        {
+            var request = await _context.Users.FindAsync(id);
+            if (request == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                request.Status = "WHITE";
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
